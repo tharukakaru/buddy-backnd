@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Docker / local data
+docker-data/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local proof/test artifacts
+backup-before-commit/
+*-test.json
+ask-*.json
+search-*.json
+ingest-*.json
+progress-*.json
+robotics-*-test.pdf
+robotics-*-test.docx
+robotics-upload-test.txt
+unsupported-test.csv

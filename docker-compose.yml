@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: buddy-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: buddy
+      POSTGRES_PASSWORD: buddy_password
+      POSTGRES_DB: buddy_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - buddy_postgres_data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: buddy-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - buddy_qdrant_data:/qdrant/storage
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: buddy-n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      N8N_BASIC_AUTH_ACTIVE: "true"
+      N8N_BASIC_AUTH_USER: admin
+      N8N_BASIC_AUTH_PASSWORD: admin123
+      N8N_HOST: localhost
+      N8N_PORT: 5678
+      N8N_PROTOCOL: http
+      WEBHOOK_URL: http://localhost:5678/
+    volumes:
+      - buddy_n8n_data:/home/node/.n8n
+
+volumes:
+  buddy_postgres_data:
+  buddy_qdrant_data:
+  buddy_n8n_data:

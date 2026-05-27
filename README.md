@@ -76,8 +76,7 @@ Important values:
     EMBEDDING_PROVIDER=openai
     DEEPSEEK_BASE_URL=https://api.deepseek.com/v1
     DEEPSEEK_MODEL=deepseek-chat
-Do not commit real API keys.
----
+
 ## Qdrant Configuration
 Main collection:
     course_content
@@ -320,5 +319,6 @@ Working locally and tested:
 - Admin protection is demo-level using `X-User-Role: admin`.
 - Production should use JWT/session authentication and real role validation.
 - Production multilingual quality depends on the final approved embedding provider and API access.
-#   b u d d y - b a c k n d  
+#   b u d d y - b a c k n d 
+ 
  
